@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 
 import '../drawer/DrawerNavegable.dart';
 
-class Act2 extends StatefulWidget {
-  const Act2({super.key, required this.title});
+class Act3 extends StatefulWidget {
+  const Act3({super.key, required this.title});
 
   final String title;
 
   @override
-  State<Act2> createState() => _Act1State();
+  State<Act3> createState() => _Act3State();
 }
 
-class _Act1State extends State<Act2> {
+class _Act3State extends State<Act3> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Ejercicio 2'),
+          title: const Text('Ejercicio3'),
         ),
         drawer: const DrawerNavegable(),
         body: Center(
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               _buildImageWithText(

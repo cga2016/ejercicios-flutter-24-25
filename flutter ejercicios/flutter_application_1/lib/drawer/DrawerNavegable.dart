@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screen/Act1.dart';
 import 'package:flutter_application_1/screen/Act2.dart';
-import 'package:flutter_application_1/screen/screen1.dart';
+import 'package:flutter_application_1/screen/Act3.dart';
+import 'package:flutter_application_1/screen/Act4.dart';
+import 'package:flutter_application_1/screen/Act5.dart';
+import 'package:flutter_application_1/screen/Act7.dart';
+import 'package:flutter_application_1/screen/Act6.dart';
 
 // Clase encargada de generar el drawer navegable
 class DrawerNavegable extends StatelessWidget {
@@ -41,8 +46,10 @@ class DrawerNavegable extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
 
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => const Act2()));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Act2(
+                      title: '',
+                    )));
           },
         ),
         const Divider(
@@ -52,26 +59,74 @@ class DrawerNavegable extends StatelessWidget {
           leading: const Icon(Icons.check_box_outlined),
           title: const Text("Ejercicio 3"),
           onTap: () {
-            /*  Navigator.pop(context);
+            Navigator.pop(context);
 
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const Ejercicio11()));*/
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Act3(
+                      title: '',
+                    )));
           },
         ),
         const Divider(
-          // separador
           color: Color.fromARGB(255, 52, 255, 2),
         ),
         ListTile(
           leading: const Icon(Icons.check_box_outlined),
           title: const Text("Ejercicio 4"),
           onTap: () {
-            /* // para que se cierre al clicar en la opción
             Navigator.pop(context);
 
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const Ejercicio12()));*/
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Act4(
+                      title: '',
+                    )));
           },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 5"),
+          onTap: () {
+            Navigator.pop(context);
+
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Act5(
+                      title: '',
+                    )));
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 6"),
+          onTap: () {
+            Navigator.pop(context);
+
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Act6(
+                      title: '',
+                    )));
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 7"),
+          onTap: () {
+            Navigator.pop(context);
+
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => const Act7()));
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
         ),
       ]);
 

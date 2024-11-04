@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../drawer/DrawerNavegable.dart';
 
@@ -15,9 +16,10 @@ class _Act1State extends State<Act1> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Ejemplo de filas y columnas animadas'),
+          title: const Text("Ejercicios Flutter act 1"),
         ),
         drawer: const DrawerNavegable(),
         body: Center(
@@ -27,25 +29,17 @@ class _Act1State extends State<Act1> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  _buildImageWithText(
-                      "assets/images/flutter_logo.png", "Flutter")
+                  _text("Carlos"),
+                  _text("Gil Albañil"),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  _buildImageWithText("assets/images/flutter_logo.png", "Act"),
-                  _buildImageWithText("assets/images/flutter_logo.png", "1"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildImageWithText(
-                      "assets/images/flutter_logo.png", "Ejercicio"),
-                  _buildImageWithText("assets/images/flutter_logo.png", "por"),
-                  _buildImageWithText(
-                      "assets/images/flutter_logo.png", "carlos"),
+                  Text(
+                    "thttps://github.com/cga2016/ejercicios-flutter-24-25.git",
+                    style: GoogleFonts.kronaOne(),
+                  ),
                 ],
               ),
             ],
@@ -55,20 +49,15 @@ class _Act1State extends State<Act1> {
     );
   }
 
-  Widget _buildImageWithText(String imageName, String text) {
+  Widget _text(String text) {
     return Container(
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Column(
         children: <Widget>[
-          Image.asset(
-            '$imageName', // Ruta de la imagen en tu proyecto
-            width: 100,
-            height: 100,
-          ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             text,
-            style: TextStyle(fontSize: 16.0),
+            style: GoogleFonts.getFont('Lato'),
           ),
         ],
       ),
