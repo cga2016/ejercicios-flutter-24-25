@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../drawer/DrawerNavegable.dart';
@@ -14,61 +16,38 @@ class Act5 extends StatefulWidget {
 class _Act5State extends State<Act5> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Retos flutter'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Retos flutter'),
+      ),
+      drawer: const DrawerNavegable(),
+      body: Center(
+          child: Container(
+        height: 50,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 158, 12, 255),
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(100),
+            bottomLeft: Radius.circular(10),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(170, 28, 2, 41),
+              offset: Offset(20, 50),
+              blurRadius: 5,
+            ),
+          ],
         ),
-        drawer: const DrawerNavegable(),
-        body: Center(
-            child: Container(
-          height: 130,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            color: Color(0xFF57B3FC),
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(50),
-              bottomLeft: Radius.circular(50),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xAA6EB1E6),
-                offset: Offset(9, 9),
-                blurRadius: 6,
-              ),
-            ],
+        alignment: Alignment.center,
+        child: const Text(
+          'cabecera',
+          style: TextStyle(
+            fontSize: 30,
+            color: Colors.white,
           ),
-          alignment: Alignment.center,
-          child: const Text(
-            'I am a header',
-            style: TextStyle(
-              fontSize: 38,
-              color: Colors.white,
-            ),
-          ),
-        )),
-      ),
-    );
-  }
-
-  Widget _buildImageWithText(String imageName, String text) {
-    return Container(
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.asset(
-            imageName, // Ruta de la imagen en tu proyecto
-            width: 100,
-            height: 100,
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 16.0),
-          ),
-        ],
-      ),
+        ),
+      )),
     );
   }
 }

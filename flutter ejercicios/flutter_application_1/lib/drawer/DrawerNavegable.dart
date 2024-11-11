@@ -1,15 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screen/Act1.dart';
-import 'package:flutter_application_1/screen/Act2.dart';
-import 'package:flutter_application_1/screen/Act3.dart';
-import 'package:flutter_application_1/screen/Act4.dart';
-import 'package:flutter_application_1/screen/Act5.dart';
-import 'package:flutter_application_1/screen/Act7.dart';
-import 'package:flutter_application_1/screen/Act6.dart';
 
 // Clase encargada de generar el drawer navegable
 class DrawerNavegable extends StatelessWidget {
-  const DrawerNavegable({Key? key}) : super(key: key);
+  const DrawerNavegable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +23,22 @@ class DrawerNavegable extends StatelessWidget {
   Widget buildMenuItems(BuildContext context) => Column(children: [
         ListTile(
           leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Home"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/Home');
+          },
+        ),
+        const Divider(
+          // separación
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
           title: const Text("Ejercicio 1"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const Act1(title: '')));
+            Navigator.pushNamed(context, '/screen/Act1');
           },
         ),
         const Divider(
@@ -45,11 +50,7 @@ class DrawerNavegable extends StatelessWidget {
           title: const Text("Ejercicio 2"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Act2(
-                      title: '',
-                    )));
+            Navigator.pushNamed(context, '/screen/Act2');
           },
         ),
         const Divider(
@@ -60,11 +61,7 @@ class DrawerNavegable extends StatelessWidget {
           title: const Text("Ejercicio 3"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Act3(
-                      title: '',
-                    )));
+            Navigator.pushNamed(context, '/screen/Act3');
           },
         ),
         const Divider(
@@ -75,11 +72,7 @@ class DrawerNavegable extends StatelessWidget {
           title: const Text("Ejercicio 4"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Act4(
-                      title: '',
-                    )));
+            Navigator.pushNamed(context, '/screen/Act4');
           },
         ),
         const Divider(
@@ -90,11 +83,7 @@ class DrawerNavegable extends StatelessWidget {
           title: const Text("Ejercicio 5"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Act5(
-                      title: '',
-                    )));
+            Navigator.pushNamed(context, '/screen/Act5');
           },
         ),
         const Divider(
@@ -105,11 +94,7 @@ class DrawerNavegable extends StatelessWidget {
           title: const Text("Ejercicio 6"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Act6(
-                      title: '',
-                    )));
+            Navigator.pushNamed(context, '/screen/Act6');
           },
         ),
         const Divider(
@@ -120,9 +105,40 @@ class DrawerNavegable extends StatelessWidget {
           title: const Text("Ejercicio 7"),
           onTap: () {
             Navigator.pop(context);
-
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => const Act7()));
+            Navigator.pushNamed(context, '/screen/Act7');
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Aviso"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/Aviso');
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 8"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/Act8');
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 9"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/Act9');
           },
         ),
         const Divider(

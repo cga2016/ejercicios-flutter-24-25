@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../drawer/DrawerNavegable.dart';
@@ -14,43 +16,38 @@ class Act6 extends StatefulWidget {
 class _Act6State extends State<Act6> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Ejemplo de filas y columnas animadas'),
-        ),
-        drawer: const DrawerNavegable(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildImageWithText(
-                      "assets/images/flutter_logo.png", "Flutter")
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildImageWithText("assets/images/flutter_logo.png", "Act"),
-                  _buildImageWithText("assets/images/flutter_logo.png", "1"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _buildImageWithText(
-                      "assets/images/flutter_logo.png", "Ejercicio"),
-                  _buildImageWithText("assets/images/flutter_logo.png", "por"),
-                  _buildImageWithText(
-                      "assets/images/flutter_logo.png", "carlos"),
-                ],
-              ),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ejemplo de filas y columnas animadas'),
+      ),
+      drawer: const DrawerNavegable(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _buildImageWithText("assets/images/flutter_logo.png", "Flutter")
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _buildImageWithText("assets/images/flutter_logo.png", "Act"),
+                _buildImageWithText("assets/images/flutter_logo.png", "1"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _buildImageWithText(
+                    "assets/images/flutter_logo.png", "Ejercicio"),
+                _buildImageWithText("assets/images/flutter_logo.png", "por"),
+                _buildImageWithText("assets/images/flutter_logo.png", "carlos"),
+              ],
+            ),
+          ],
         ),
       ),
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,35 +17,32 @@ class Act1 extends StatefulWidget {
 class _Act1State extends State<Act1> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Ejercicios Flutter act 1"),
-        ),
-        drawer: const DrawerNavegable(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _text("Carlos"),
-                  _text("Gil Albañil"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "thttps://github.com/cga2016/ejercicios-flutter-24-25.git",
-                    style: GoogleFonts.kronaOne(),
-                  ),
-                ],
-              ),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Ejercicios Flutter act 1"),
+      ),
+      drawer: const DrawerNavegable(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _text("Carlos"),
+                _text("Gil Albañil"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "thttps://github.com/cga2016/ejercicios-flutter-24-25.git",
+                  style: GoogleFonts.kronaOne(),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

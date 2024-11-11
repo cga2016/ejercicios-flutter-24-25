@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../drawer/DrawerNavegable.dart';
@@ -14,25 +16,19 @@ class Act3 extends StatefulWidget {
 class _Act3State extends State<Act3> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Ejercicio3'),
-        ),
-        drawer: const DrawerNavegable(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildImageWithText(
-                  "assets/images/flutter_logo.png", "Ejercicio"),
-              _buildImageWithText(
-                  "assets/images/flutter_logo.png", "Ejercicio"),
-              _buildImageWithText(
-                  "assets/images/flutter_logo.png", "Ejercicio"),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ejercicio3'),
+      ),
+      drawer: const DrawerNavegable(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _buildImageWithText("assets/images/flutter_logo.png", "Ejercicio"),
+            _buildImageWithText("assets/images/flutter_logo.png", "Ejercicio"),
+            _buildImageWithText("assets/images/flutter_logo.png", "Ejercicio"),
+          ],
         ),
       ),
     );

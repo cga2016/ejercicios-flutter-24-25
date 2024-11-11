@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../drawer/DrawerNavegable.dart';
@@ -6,16 +8,8 @@ class Act7 extends StatelessWidget {
   const Act7({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: '',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(
-          title: 'Actividad 2 bottones descendentes y ascendentes'),
-    );
+    return const MyHomePage(
+        title: 'Actividad 2 bottones descendentes y ascendentes');
   }
 }
 
