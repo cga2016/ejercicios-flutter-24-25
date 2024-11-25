@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../drawer/DrawerNavegable.dart';
+import '../drawer/darawernavegable.dart';
 
 class Aviso extends StatefulWidget {
   const Aviso({super.key, required this.title});

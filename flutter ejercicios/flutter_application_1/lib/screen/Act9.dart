@@ -2,9 +2,8 @@
 
 import 'dart:async';
 import 'dart:math';
-
+import '../drawer/darawernavegable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/drawer/DrawerNavegable.dart';
 
 class Act9 extends StatelessWidget {
   const Act9({super.key});
@@ -45,6 +44,9 @@ class _Act9EjState extends State<Act9Ej> {
           pulsado = false;
         } else {
           puntuacion -= 2;
+          if (puntuacion == 0) {
+            mostrarAlertDialog(context);
+          }
         }
       });
     });
@@ -58,11 +60,78 @@ class _Act9EjState extends State<Act9Ej> {
     });
   }
 
+//mensaje alerta
+  void mostrarAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('CUIDAO'),
+          content: const SingleChildScrollView(
+            child: Text(
+              ' Has perdio, ¿continuar?',
+              style: TextStyle(fontSize: 60),
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Cerrar el AlertDialog
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/screen/Act8');
+              },
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                puntuacion = 0;
+              },
+              child: const Text('Aceptar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+//mensaje simple
+  void mostrarSimpleDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          title: const Text('DISTRACCIÓN \n 8x7 = '),
+          children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () {
+                Navigator.of(context).pop();
+                mostrarSimpleDialog(context);
+              },
+              child: const Text('63'),
+            ),
+            SimpleDialogOption(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('56'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void onImageTap() {
     setState(() {
       if (pulsado == false) {
         puntuacion += 1;
         pulsado = true;
+        if (puntuacion != 0) {
+          if (puntuacion % 5 == 0) {
+            mostrarSimpleDialog(context);
+          }
+        }
       }
     });
   }

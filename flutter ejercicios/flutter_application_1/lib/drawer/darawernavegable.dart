@@ -144,6 +144,17 @@ class DrawerNavegable extends StatelessWidget {
         const Divider(
           color: Color.fromARGB(255, 52, 255, 2),
         ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Cambia Tema"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/tema_oscuro');
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
       ]);
 
   // construye el resto del drawer

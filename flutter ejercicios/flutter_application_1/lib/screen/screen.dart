@@ -1,0 +1,12 @@
+export 'act1.dart';
+export 'act2.dart';
+export 'act3.dart';
+export 'act4.dart';
+export 'act5.dart';
+export 'act6.dart';
+export 'act7.dart';
+export 'act8.dart';
+export 'act9.dart';
+export 'home_screen.dart';
+export 'aviso.dart';
+export 'tema_oscuro.dart';

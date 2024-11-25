@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../drawer/DrawerNavegable.dart';
+import '../drawer/darawernavegable.dart';
 
 class Act6 extends StatefulWidget {
   const Act6({super.key, required this.title});

@@ -1,11 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/drawer/DrawerNavegable.dart';
-import 'package:flutter_application_1/tools/Tab2.dart';
+import '../drawer/darawernavegable.dart';
+import 'package:flutter_application_1/tools/tab2.dart';
 import 'package:flutter_application_1/tools/galeriaDEImagenes.dart';
 
-import '../tools/CreadorDeCabecera.dart';
+import '../tools/creadordecabecera.dart';
 
 /*Clase que se encarga de la construcción de la pantalla */
 class Act8 extends StatefulWidget {

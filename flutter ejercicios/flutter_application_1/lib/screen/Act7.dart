@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../drawer/DrawerNavegable.dart';
+import '../drawer/darawernavegable.dart';
 
 class Act7 extends StatelessWidget {
   const Act7({super.key});
