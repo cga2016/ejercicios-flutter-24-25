@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screen/act11.dart';
 import 'package:flutter_application_1/screen/screen.dart';
 
 class AppRoutes {
@@ -14,6 +15,8 @@ class AppRoutes {
   static const String aviso = '/screen/Aviso';
   static const String act8 = '/screen/Act8';
   static const String act9 = '/screen/Act9';
+  static const String act10 = '/screen/Act10';
+  static const String act11 = '/screen/Act11';
 
   // Mapa de rutas
   static final Map<String, WidgetBuilder> routes = {
@@ -28,6 +31,10 @@ class AppRoutes {
     aviso: (context) => const Aviso(title: 'Aviso'),
     act8: (context) => const Act8(),
     act9: (context) => const Act9(),
+    act10: (context) => const Act10(
+          title: '',
+        ),
+    act11: (context) => const Act11(),
   };
 
   static void addRoutes(Map<String, WidgetBuilder> newRoutes) {

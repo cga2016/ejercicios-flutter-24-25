@@ -64,6 +64,10 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       title: 'Flutter Carlos paginas',
+      /*home: Container(
+        decoration:
+            BoxDecoration(image: DecorationImage(image: AssetImage("1.png"))),
+      ),*/
       initialRoute: AppRoutes.home,
       routes: AppRoutes.routes,
     );

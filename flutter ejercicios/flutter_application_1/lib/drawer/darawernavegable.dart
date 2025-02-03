@@ -155,6 +155,28 @@ class DrawerNavegable extends StatelessWidget {
         const Divider(
           color: Color.fromARGB(255, 52, 255, 2),
         ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 10"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/Act10');
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outlined),
+          title: const Text("Ejercicio 11"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/screen/Act11');
+          },
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 52, 255, 2),
+        )
       ]);
 
   // construye el resto del drawer
