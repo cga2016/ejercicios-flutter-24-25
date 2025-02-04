@@ -9,6 +9,7 @@ export 'act8.dart';
 export 'act9.dart';
 export 'act10.dart';
 export 'act11.dart';
+export 'act12.dart';
 export 'home_screen.dart';
 export 'aviso.dart';
 export 'tema_oscuro.dart';

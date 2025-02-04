@@ -17,6 +17,7 @@ class AppRoutes {
   static const String act9 = '/screen/Act9';
   static const String act10 = '/screen/Act10';
   static const String act11 = '/screen/Act11';
+  static const String act12 = '/screen/Act12';
 
   // Mapa de rutas
   static final Map<String, WidgetBuilder> routes = {
@@ -35,6 +36,9 @@ class AppRoutes {
           title: '',
         ),
     act11: (context) => const Act11(),
+    act12: (context) => const Act12(
+          title: '',
+        ),
   };
 
   static void addRoutes(Map<String, WidgetBuilder> newRoutes) {
