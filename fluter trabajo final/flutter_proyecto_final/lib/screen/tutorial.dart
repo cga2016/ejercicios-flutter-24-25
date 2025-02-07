@@ -2,16 +2,16 @@
 
 import 'package:flutter/material.dart';
 
-class MenuPrincipal extends StatefulWidget {
-  const MenuPrincipal({super.key, required this.title});
+class Tutorial extends StatefulWidget {
+  const Tutorial({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MenuPrincipal> createState() => _MenuPrincipalState();
+  State<Tutorial> createState() => _TutorialState();
 }
 
-class _MenuPrincipalState extends State<MenuPrincipal> {
+class _TutorialState extends State<Tutorial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,68 +34,15 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
               '\n',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Jugar",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(80),
-                  // child: Text("Nueva partida"),
-                  onPressed: _nuevaPartida,
-                  tooltip:
-                      'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
-                ),
-              ],
-            ),
-            /*FloatingActionButton(
-              child: Text("Nueva partida"),
-              onPressed: _nuevaPartida,
-              tooltip:
-                  'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
-                  
-            ),*/
-            const Text("\n"),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Puntuaciones",
-                    style: TextStyle(fontSize: 25.20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(90),
-                  // child: Text("Nueva partida"),
-
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
-                ),
-              ],
-            ),
-            const Text("\n"),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Tutoriales",
-                    style: TextStyle(fontSize: 25.20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(90),
-                  // child: Text("Nueva partida"),
-
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
-                ),
-              ],
+            const Text(
+              ' El juego consiste en imitar \n  los patrones mostrados'
+              '\n'
+              " en la parte superior "
+              " tocando la matriz "
+              "\n"
+              "de la parte inferior",
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 15),
             ),
           ],
         ),

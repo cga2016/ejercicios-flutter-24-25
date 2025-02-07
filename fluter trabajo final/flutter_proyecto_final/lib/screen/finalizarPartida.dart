@@ -2,16 +2,16 @@
 
 import 'package:flutter/material.dart';
 
-class MenuPrincipal extends StatefulWidget {
-  const MenuPrincipal({super.key, required this.title});
+class FinalizarPartida extends StatefulWidget {
+  const FinalizarPartida({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MenuPrincipal> createState() => _MenuPrincipalState();
+  State<FinalizarPartida> createState() => _FinalizarPartidaState();
 }
 
-class _MenuPrincipalState extends State<MenuPrincipal> {
+class _FinalizarPartidaState extends State<FinalizarPartida> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,121 +1,124 @@
 // ignore_for_file: file_names
 
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class MenuPrincipal extends StatefulWidget {
-  const MenuPrincipal({super.key, required this.title});
-
-  final String title;
+// ignore: camel_case_types
+class Juego extends StatefulWidget {
+  const Juego({super.key});
 
   @override
-  State<MenuPrincipal> createState() => _MenuPrincipalState();
+  State<Juego> createState() => _JuegoState();
 }
 
-class _MenuPrincipalState extends State<MenuPrincipal> {
+class _JuegoState extends State<Juego> {
+  final int tamanioMatriz = 3;
+  late List<List<bool>> matrizAImitar;
+  late List<List<bool>> matrizJugador;
+  int score = 0;
+  late Timer temporizador;
+  int tiempo = 30;
+
+  @override
+  void initState() {
+    super.initState();
+    _generarPatron();
+    matrizJugador =
+        List.generate(tamanioMatriz, (_) => List.filled(tamanioMatriz, false));
+    temporizador = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (tiempo > 0) {
+        setState(() {
+          tiempo--;
+        });
+      } else {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/screen/finalizarPartida');
+        timer.cancel();
+      }
+    });
+  }
+
+  void _generarPatron() {
+    final random = Random();
+    matrizAImitar = List.generate(tamanioMatriz,
+        (_) => List.generate(tamanioMatriz, (_) => random.nextBool()));
+  }
+
+  void _establecerMatrizJugador(int row, int col) {
+    setState(() {
+      matrizJugador[row][col] = !matrizJugador[row][col];
+      _comprobar();
+    });
+  }
+
+  void _comprobar() {
+    if (matrizJugador.toString() == matrizAImitar.toString()) {
+      setState(() {
+        score++;
+        _generarPatron();
+        matrizJugador = List.generate(
+            tamanioMatriz, (_) => List.filled(tamanioMatriz, false));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          // mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: <Widget>[
-            const Text(
-              'Tap',
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 25),
-            ),
-            Text(
-              'Master',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-              '\n',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Jugar",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(80),
-                  // child: Text("Nueva partida"),
-                  onPressed: _nuevaPartida,
-                  tooltip:
-                      'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
-                ),
-              ],
-            ),
-            /*FloatingActionButton(
-              child: Text("Nueva partida"),
-              onPressed: _nuevaPartida,
-              tooltip:
-                  'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
-                  
-            ),*/
-            const Text("\n"),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Puntuaciones",
-                    style: TextStyle(fontSize: 25.20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(90),
-                  // child: Text("Nueva partida"),
-
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
-                ),
-              ],
-            ),
-            const Text("\n"),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Tutoriales",
-                    style: TextStyle(fontSize: 25.20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(90),
-                  // child: Text("Nueva partida"),
-
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _text(String text) {
-    return Container(
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          const SizedBox(height: 8.0),
-          Text(
-            text,
-          ),
+      appBar: AppBar(title: Text('Imita el patron - Tiempo: $tiempo s')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Puntuación: $score', style: const TextStyle(fontSize: 24)),
+          _crearMatriz(matrizAImitar, false),
+          const SizedBox(height: 20),
+          _crearMatriz(matrizJugador, true),
         ],
       ),
     );
   }
 
-  void _nuevaPartida() {}
+/*
+clase que crea la matirz, se aprobecha en ambas, solo que la del jugador es interactuable, la otra no
+ */
+  Widget _crearMatriz(List<List<bool>> grid, bool isPlayerGrid) {
+    return Column(
+      children: List.generate(
+        tamanioMatriz,
+        (row) => Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            tamanioMatriz,
+            (col) => GestureDetector(
+              onTap: isPlayerGrid
+                  ? () => _establecerMatrizJugador(row, col)
+                  : null,
+              child: Container(
+                width: 60,
+                height: 60,
+                margin: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: grid[row][col]
+                      ? const Color.fromARGB(255, 5, 87, 163)
+                      : const Color.fromARGB(255, 48, 56, 66),
+                  border: Border.all(color: Colors.black),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+/*
+ * cancela el timer para que no siga en segundo plano
+ */
+  @override
+  void dispose() {
+    temporizador.cancel();
+    super.dispose();
+  }
 }

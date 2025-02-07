@@ -2,16 +2,17 @@
 
 import 'package:flutter/material.dart';
 
-class MenuPrincipal extends StatefulWidget {
-  const MenuPrincipal({super.key, required this.title});
+class Puntuaciones extends StatefulWidget {
+  const Puntuaciones({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MenuPrincipal> createState() => _MenuPrincipalState();
+  State<Puntuaciones> createState() => _PuntuacionesState();
 }
 
-class _MenuPrincipalState extends State<MenuPrincipal> {
+// ignore: camel_case_types
+class _PuntuacionesState extends State<Puntuaciones> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

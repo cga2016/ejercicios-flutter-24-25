@@ -40,13 +40,13 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                 const SizedBox(),
                 FloatingActionButton.extended(
                   label: const Text(
-                    "Jugar",
-                    style: TextStyle(fontSize: 20),
+                    "        Jugar          ",
+                    style: TextStyle(fontSize: 25.20),
                   ),
                   backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
                   extendedPadding: const EdgeInsets.all(80),
                   // child: Text("Nueva partida"),
-                  onPressed: _nuevaPartida,
+                  onPressed: _jugar,
                   tooltip:
                       'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
                 ),
@@ -66,15 +66,18 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                 const SizedBox(),
                 FloatingActionButton.extended(
                   label: const Text(
-                    "Puntuaciones",
+                    " Puntuaciones ",
                     style: TextStyle(fontSize: 25.20),
                   ),
                   backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
                   extendedPadding: const EdgeInsets.all(90),
                   // child: Text("Nueva partida"),
 
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/screen/puntuaciones');
+                  },
+                  tooltip: 'revisar las puntuaciones',
                 ),
               ],
             ),
@@ -85,15 +88,18 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                 const SizedBox(),
                 FloatingActionButton.extended(
                   label: const Text(
-                    "Tutoriales",
+                    "    Tutoriales     ",
                     style: TextStyle(fontSize: 25.20),
                   ),
                   backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
                   extendedPadding: const EdgeInsets.all(90),
                   // child: Text("Nueva partida"),
 
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/screen/tutorial');
+                  },
+                  tooltip: 'Guia para el juego y la app',
                 ),
               ],
             ),
@@ -117,5 +123,8 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
     );
   }
 
-  void _nuevaPartida() {}
+  void _jugar() {
+    Navigator.pop(context);
+    Navigator.pushNamed(context, '/screen/juego');
+  }
 }
