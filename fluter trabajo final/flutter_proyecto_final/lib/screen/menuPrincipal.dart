@@ -15,20 +15,17 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF407BA7),
       body: Center(
         child: Column(
           // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: <Widget>[
-            const Text(
-              'Tap',
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 25),
-            ),
-            Text(
-              'Master',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Image.asset(
+              'assets/titulos/titulo.png',
+              width: 250,
+              height: 100,
             ),
             Text(
               '\n',
@@ -41,9 +38,11 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                 FloatingActionButton.extended(
                   label: const Text(
                     "        Jugar          ",
-                    style: TextStyle(fontSize: 25.20),
+                    style: TextStyle(
+                        fontSize: 25.20,
+                        color: Color.fromARGB(255, 255, 255, 255)),
                   ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
+                  backgroundColor: const Color(0xFFFF002B),
                   extendedPadding: const EdgeInsets.all(80),
                   // child: Text("Nueva partida"),
                   onPressed: _jugar,
@@ -67,9 +66,11 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                 FloatingActionButton.extended(
                   label: const Text(
                     " Puntuaciones ",
-                    style: TextStyle(fontSize: 25.20),
+                    style: TextStyle(
+                        fontSize: 25.20,
+                        color: Color.fromARGB(255, 255, 255, 255)),
                   ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
+                  backgroundColor: const Color(0xFFFF002B),
                   extendedPadding: const EdgeInsets.all(90),
                   // child: Text("Nueva partida"),
 
@@ -89,9 +90,11 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                 FloatingActionButton.extended(
                   label: const Text(
                     "    Tutoriales     ",
-                    style: TextStyle(fontSize: 25.20),
+                    style: TextStyle(
+                        fontSize: 25.20,
+                        color: Color.fromARGB(255, 255, 255, 255)),
                   ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
+                  backgroundColor: const Color(0xFFFF002B),
                   extendedPadding: const EdgeInsets.all(90),
                   // child: Text("Nueva partida"),
 
@@ -100,6 +103,30 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                     Navigator.pushNamed(context, '/screen/tutorial');
                   },
                   tooltip: 'Guia para el juego y la app',
+                ),
+              ],
+            ),
+            const Text("\n"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(),
+                FloatingActionButton.extended(
+                  label: const Text(
+                    "Gestor  cuenta",
+                    style: TextStyle(
+                        fontSize: 25.20,
+                        color: Color.fromARGB(255, 255, 255, 255)),
+                  ),
+                  backgroundColor: const Color(0xFFFF002B),
+                  extendedPadding: const EdgeInsets.all(90),
+                  // child: Text("Nueva partida"),
+
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/screen/gestorDeSesion');
+                  },
+                  tooltip: 'Menu para gestionar las cuantas',
                 ),
               ],
             ),

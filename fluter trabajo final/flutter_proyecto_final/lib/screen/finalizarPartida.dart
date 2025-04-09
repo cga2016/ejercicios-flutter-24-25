@@ -12,110 +12,101 @@ class FinalizarPartida extends StatefulWidget {
 }
 
 class _FinalizarPartidaState extends State<FinalizarPartida> {
+  final List<String> _puntuaciones = []; // Lista de puntuaciones
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF407BA7),
       body: Center(
         child: Column(
-          // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-
           children: <Widget>[
+            Image.asset(
+              'assets/titulos/finPartida.png',
+              width: 250,
+              height: 100,
+            ),
             const Text(
-              'Tap',
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 25),
+              '¿Quieres añadir tu puntuación?',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 40),
             ),
-            Text(
-              'Master',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-              '\n',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Jugar",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(80),
-                  // child: Text("Nueva partida"),
-                  onPressed: _nuevaPartida,
-                  tooltip:
-                      'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
-                ),
-              ],
-            ),
-            /*FloatingActionButton(
-              child: Text("Nueva partida"),
-              onPressed: _nuevaPartida,
-              tooltip:
-                  'Crea una nueva partida: \n !CUIDADO¡ la antigua partida se borrara',
-                  
-            ),*/
-            const Text("\n"),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Puntuaciones",
-                    style: TextStyle(fontSize: 25.20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(90),
-                  // child: Text("Nueva partida"),
+            const SizedBox(height: 20),
 
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
-                ),
-              ],
+            // Lista de puntuaciones
+            Expanded(
+              child: _puntuaciones.isEmpty
+                  ? const Text(
+                      "No hay puntuaciones aún",
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    )
+                  : ListView.builder(
+                      itemCount: _puntuaciones.length,
+                      itemBuilder: (context, index) {
+                        return const Card(
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          child: ListTile(
+                            title: Text(
+                              "Jugador 1  50 puntos",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
             ),
-            const Text("\n"),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(),
-                FloatingActionButton.extended(
-                  label: const Text(
-                    "Tutoriales",
-                    style: TextStyle(fontSize: 25.20),
-                  ),
-                  backgroundColor: const Color.fromRGBO(128, 255, 219, 1),
-                  extendedPadding: const EdgeInsets.all(90),
-                  // child: Text("Nueva partida"),
 
-                  onPressed: () {},
-                  tooltip: 'Continua la partida que fue creada',
-                ),
-              ],
+            const SizedBox(height: 20),
+
+            // Botón para agregar una puntuación de prueba
+            ElevatedButton(
+              onPressed: () {
+                _addPuntuacion();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFF002B),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              ),
+              child: const Text(
+                "Añadir puntuación",
+                style: TextStyle(
+                    fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+              ),
             ),
+
+            const SizedBox(height: 20),
+
+            // Botón de regresar
+            FloatingActionButton.extended(
+              label: const Text(
+                "Regresar",
+                style: TextStyle(
+                    fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+              ),
+              backgroundColor: const Color(0xFFFF002B),
+              onPressed: () {
+                _cambiar('/screen/menuPrincipal');
+              },
+              tooltip: 'Volver al menú principal',
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
     );
   }
 
-  Widget _text(String text) {
-    return Container(
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          const SizedBox(height: 8.0),
-          Text(
-            text,
-          ),
-        ],
-      ),
-    );
+  void _cambiar(String ruta) {
+    Navigator.pop(context);
+    Navigator.pushNamed(context, ruta);
   }
 
-  void _nuevaPartida() {}
+  void _addPuntuacion() {
+    setState(() {
+      _puntuaciones.add((10 + _puntuaciones.length * 5).toString());
+    });
+  }
 }
